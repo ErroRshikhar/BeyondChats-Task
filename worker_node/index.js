@@ -2,9 +2,19 @@ require('dotenv').config();
 const axios = require('axios');
 const cheerio = require('cheerio');
 const OpenAI = require('openai');
+const express = require('express');
 
+
+const app = express();
+const PORT = process.env.PORT || 10000;
+
+app.get('/', (req, res) => res.send("Worker is Alive"));
+
+app.listen(PORT, () => {
+    console.log(`✅ Worker Server listening on port ${PORT}`);
+});
 const API_KEY = process.env.OPENAI_API_KEY;
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000/api/articles';
+const BACKEND_URL = process.env.BACKEND_URL || 'https://beyondchat-backend-f67f.onrender.com';
 const openai = new OpenAI({ apiKey: API_KEY });
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
