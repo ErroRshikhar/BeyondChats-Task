@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Loader2, ExternalLink, FileText, Sparkles } from 'lucide-react';
 import './App.css';
 
-const API_URL = 'https://beyondchat-backend-f67f.onrender.com';
+const API_URL = 'https://beyondchat-backend-f67f.onrender.com/api/articles';
 
 function App() {
   const [articles, setArticles] = useState([]);
